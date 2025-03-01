@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const csrfToken = document.querySelector('[name="csrf_token"]').value;
                 formData.append('csrf_token', csrfToken);
 
-                const response = await fetch('https://manas.eu.org/CodeGenX/contact.php', {
+                const response = await fetch('https://manasar.eu.org/contact.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
