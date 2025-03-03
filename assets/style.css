@@ -1,0 +1,395 @@
+
+:root {
+    --primary: #00f3ff;
+    --secondary: #1a1a1a;
+    --accent: #7b00ff;
+    --dark: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: #ffffff;
+    line-height: 1.6;
+    padding-top: 80px; /* Ensure content below header is not overlapped */
+}
+
+/* Header & Navigation - consolidated */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1.5rem 5%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container .logo {
+    width: 130px;
+    height: auto;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle.active span {
+    background: var(--primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sections */
+.section {
+    padding: 5rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+}
+
+/* Event Cards */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.event-card {
+    background: var(--secondary);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.event-date {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Add CTF-specific styling */
+.event-card[class*="ctf"] {
+    border-color: #ff4d4d;
+}
+
+.event-card[class*="ctf"] .event-highlights span {
+    background: rgba(255, 77, 77, 0.15);
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--secondary);
+    border-radius: 15px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.position {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.bio {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    min-height: 80px;
+}
+
+.team-member .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.team-member .social-links a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.team-member .social-links a:hover {
+    color: var(--primary);
+}
+
+/* Highlight special team members */
+.team-member:first-child {
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member:first-child::before {
+    content: "President";
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+}
+
+.team-member:nth-child(2) {
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member:nth-child(2)::before {
+    content: "HR Head";
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+}
+.team-member:nth-child(3) {
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member:nth-child(3)::before {
+    content: "Club PRO";
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+}
+.team-member:nth-child(9) {
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member:nth-child(9)::before {
+    content: "Student Co-ordinator";
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+}
+
+
+/* Contact Form */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+/* Instagram Card Enhancements */
+.instagram-card {
+    background: linear-gradient(45deg, #405DE6, #833AB4);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.instagram-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.instagram-handle {
+    display: block;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 1rem 0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.instagram-card .event-highlights span {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    width: 100%;
+}
+
+.social-icon i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 50%;
+    background: rgba(0, 243, 255, 0.1);
+}
+
+.social-icon:hover i {
+    color: #fff;
+    transform: scale(1.2);
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+/* Form feedback elements */
+.spinner {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
